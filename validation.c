@@ -53,19 +53,25 @@ int		touch_blocks(char *buff)
 	count = 0;
 	while (i < 20)
 	{
+		ft_putchar(buff[i]);
 		if (buff[i] == '#')
 		{
-			if (i + 1 <= 19 && buff[i] == '#')
-				count++;
-			if (i - 1 >= 0 && buff[i] == '#')
-				count++;
-			if (i - 5 <= 0 && buff[i] == '#')
-				count++;
-			if (i + 5 >= 19 && buff[i] == '#')
-				count++;
+			if (i + 1 < 20)
+				if (buff[i + 1 == '#'])
+					count++;
+			if (i - 1 >= 0)
+				if (buff[i - 1] == '#')
+					count++;
+			if (i - 5 <= 0)
+				if (buff[i - 5] == '#')
+					count++;
+			if (i + 5 > 20)
+				if (buff[i + 5] == '#')
+					count++;
 		}
 		i++;
 	}
+	ft_putnbr(count);
 	return (count);
 }
 

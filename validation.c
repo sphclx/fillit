@@ -6,7 +6,7 @@
 /*   By: abenton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:01:01 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/10 17:24:49 by abenton          ###   ########.fr       */
+/*   Updated: 2019/10/10 18:12:04 by abenton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ int		touch_blocks(char *buff)
 				count++;
 			if (i - 1 >= 0 && buff[i] == '#')
 				count++;
-			if () // verical touch
+			if (i - 5 <= 0 && buff[i] == '#')
 				count++;
+			if (i + 5 >= 18 && buff[i] == '#')
+				coun++;
 		}
 		i++;
 	}

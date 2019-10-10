@@ -6,7 +6,7 @@
 /*   By: abenton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 16:54:28 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/10 16:23:33 by abenton          ###   ########.fr       */
+/*   Updated: 2019/10/10 17:33:19 by abenton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int		main(int argc, char **argv)
 	{
 		ft_putendl("usage: ./fillit source_file\n");
 		return (-1);
-	}
-
+	}	
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenton <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mburl <mburl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 16:55:03 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/10 18:38:36 by abenton          ###   ########.fr       */
+/*   Updated: 2019/10/10 18:50:54 by mburl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct	s_tetris
 {
 	int block;
 
-}				t_tetris
+}				t_tetris;
+
+int		valid(char *buff, int size);
 
 #endif

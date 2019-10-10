@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate.c                                      :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenton <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mburl <mburl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:01:01 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/10 18:18:00 by abenton          ###   ########.fr       */
+/*   Updated: 2019/10/10 19:05:20 by mburl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,25 @@ int		touch_blocks(char *buff)
 
 	i = 0;
 	count = 0;
-	while (i < 19)
+	while (i < 20)
 	{
 		if (buff[i] == '#')
 		{
-			if (i + 1 <= 18 && buff[i] == '#')
+			if (i + 1 <= 19 && buff[i] == '#')
 				count++;
 			if (i - 1 >= 0 && buff[i] == '#')
 				count++;
 			if (i - 5 <= 0 && buff[i] == '#')
 				count++;
-			if (i + 5 >= 18 && buff[i] == '#')
-				coun++;
+			if (i + 5 >= 19 && buff[i] == '#')
+				count++;
 		}
 		i++;
 	}
 	return (count);
 }
 
-/*
+/* 
  * Goes through all blocks.
  */
 
@@ -82,7 +82,7 @@ int		valid(char *buff, int size)
 	{
 		if (charact(buff + i) != 4)
 			return (0);
-		if (touch_bloks(buff + i) != 6)
+		if (touch_blocks(buff + i) != 6 || touch_blocks(buff + i) != 8)
 			return (0);
 		i += 21;
 	}

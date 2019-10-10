@@ -6,7 +6,7 @@
 /*   By: abenton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:01:01 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/10 16:23:20 by abenton          ###   ########.fr       */
+/*   Updated: 2019/10/10 17:24:49 by abenton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * Counts number of '#'.
  */
 
-int		charach(char *buf)
+int		charact(char *buf)
 {
 	int i;
 	int count;
@@ -65,4 +65,24 @@ int		touch_blocks(char *buff)
 		i++;
 	}
 	return (count);
+}
+
+/*
+ * Goes through all blocks.
+ */
+
+int		valid(char *buff, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (charact(buff + i) != 4)
+			return (0);
+		if (touch_bloks(buff + i) != 6)
+			return (0);
+		i += 21;
+	}
+	return (1);
 }

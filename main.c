@@ -6,7 +6,7 @@
 /*   By: abenton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 16:54:28 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/09 18:03:34 by abenton          ###   ########.fr       */
+/*   Updated: 2019/10/10 16:23:33 by abenton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ int		main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_putendl("kek");
-		return (0);
+		ft_putendl("usage: ./fillit source_file\n");
+		return (-1);
 	}
-
-	fd = open(argv[1], O_RDONLY);
 
 }

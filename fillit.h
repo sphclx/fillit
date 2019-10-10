@@ -6,7 +6,7 @@
 /*   By: abenton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 16:55:03 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/09 18:03:32 by abenton          ###   ########.fr       */
+/*   Updated: 2019/10/10 16:24:35 by abenton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-typedef struct	
+/*
+ * structure from piscine d11/ex01
+   
+typedef struct		s_list
+{
+	void			*data;
+	struct s_list   *next;
+}					t_list;
+
+*/
 
 #endif

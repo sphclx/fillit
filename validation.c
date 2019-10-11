@@ -6,11 +6,12 @@
 /*   By: mburl <mburl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:01:01 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/11 14:58:31 by abenton          ###   ########.fr       */
+/*   Updated: 2019/10/11 16:27:08 by abenton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 /*
  * Checks if there is invalid characters, length of lines,
@@ -25,6 +26,8 @@ int		charact(char *buff)
 
 	i = 0;
 	count = 0;
+	if (ft_strlen(buff) != 20)
+		return (0);
 	while (i < 19)
 	{
 		if (buff[i] && buff[i] != '\n' && buff[i] != '#' && buff[i] != '.')
@@ -87,4 +90,4 @@ int		valid(char *buff, int size)
 		i += 21;
 	}
 	return (1);
- += 21;}
+ }

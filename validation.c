@@ -1,17 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   valid.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mburl <mburl@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jcope <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 17:01:01 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/11 16:27:08 by abenton          ###   ########.fr       */
+/*   Created: 2019/02/09 18:57:54 by jcope             #+#    #+#             */
+/*   Updated: 2019/10/14 12:11:52 by abenton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "fillit.h"
-#include <stdio.h>
 
 /*
  * Checks if there is invalid characters, length of lines,
@@ -19,26 +16,24 @@
  * Counts number of '#'.
  */
 
-int		charact(char *buff)
+int		charcount(char *buf)
 {
 	int i;
 	int count;
 
-	i = 0;
 	count = 0;
-	if (ft_strlen(buff) != 20)
-		return (0);
+	i = 0;
 	while (i < 19)
 	{
-		if (buff[i] && buff[i] != '\n' && buff[i] != '#' && buff[i] != '.')
+		if (buf[i] && buf[i] != '\n' && buf[i] != '#' && buf[i] != '.')
 			return (0);
-		if (buff[i] == '\n' && (i % 5 != 4))
+		if (buf[i] == '\n' && !(((i + 1) % 5) == 0))
 			return (0);
-		if (buff[i] == '#')
+		if (buf[i] == '#')
 			count++;
 		i++;
 	}
-	if (buff[i] && buff[i] != '\n')
+	if (!buf[i] || buf[i] != '\n')
 		return (0);
 	return (count);
 }
@@ -47,7 +42,7 @@ int		charact(char *buff)
  * Check if the blocks touch each other.
  */
 
-int		touch_blocks(char *buff)
+int		adjacency_counter(char *buf)
 {
 	int i;
 	int count;
@@ -56,15 +51,15 @@ int		touch_blocks(char *buff)
 	count = 0;
 	while (i < 19)
 	{
-		if (buff[i] == '#')
+		if (buf[i] == '#')
 		{
-			if (i + 1 <= 19 && buff[i + 1] == '#')
+			if (i + 1 <= 18 && buf[i + 1] == '#')
 				count++;
-			if (i - 1 >= 0 && buff[i - 1] == '#')
+			if (i - 1 >= 0 && buf[i - 1] == '#')
 				count++;
-			if (i - 5 >= 0 && buff[i - 5] == '#')
+			if (i + 5 <= 18 && buf[i + 5] == '#')
 				count++;
-			if (i + 5 <= 19 && buff[i + 5] == '#')
+			if (i - 5 >= 0 && buf[i - 5] == '#')
 				count++;
 		}
 		i++;
@@ -72,22 +67,22 @@ int		touch_blocks(char *buff)
 	return (count);
 }
 
-/* 
+/*
  * Goes through all blocks.
  */
 
-int		valid(char *buff, int size)
+int		valid(char *buf, int size)
 {
 	int i;
 
 	i = 0;
-	while (i < size)
+	while (i <= size)
 	{
-		if (charact(buff + i) != 4)
+		if (charcount(buf + i) != 4)
 			return (0);
-		if (touch_blocks(buff + i) != 6 && touch_blocks(buff + i) != 8)
+		if (adjacency_counter(buf + i) != 6 && adjacency_counter(buf + i) != 8)
 			return (0);
 		i += 21;
 	}
 	return (1);
- }
+}

@@ -6,13 +6,14 @@
 #    By: abenton <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 13:39:54 by abenton           #+#    #+#              #
-#    Updated: 2019/10/16 13:49:03 by abenton          ###   ########.fr        #
+#    Updated: 2019/10/16 14:42:47 by abenton          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRCS = main.c list_work.c algoritm_func.c add_func.c validation.c map_func.c
+SRCS = srcs/main.c srcs/list_work.c srcs/algoritm_func.c srcs/add_func.c \
+	   srcs/validation.c srcs/map_func.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -24,10 +25,11 @@ LIBFT = libft/
 
 all: $(NAME)
 
-$(NAME):
-		make -C $(libft)
+$(NAME): lib $(OBJ)
 		gcc $(FLAGS) -o $(NAME) $(SRCS) -I $(HDR) -L. libft/libft.a
 
+lib:
+		make -C $(LIBFT)
 clean:
 		rm -f $(OBJ)
 		make -C $(LIBFT) clean

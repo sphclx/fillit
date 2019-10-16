@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mburl <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mburl <mburl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 14:39:05 by mburl             #+#    #+#             */
-/*   Updated: 2019/09/18 15:52:55 by mburl            ###   ########.fr       */
+/*   Updated: 2019/10/16 07:11:09 by mburl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,8 @@ char				**ft_strsplit(char const *s, char c);
 char				*ft_strnch(char *s, char c, char n);
 int					ft_intlen(int nb);
 int					ft_countwords(char const *str, char c);
+void				ft_putstr_err(char *s);
+size_t				ft_lstcount(t_list *lst);
+void				ft_lstrev(t_list **alst);
 
 #endif

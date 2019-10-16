@@ -5,35 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburl <mburl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 16:55:03 by abenton           #+#    #+#             */
-/*   Updated: 2019/10/10 18:50:54 by mburl            ###   ########.fr       */
+/*   Created: 2019/10/07 14:47:53 by mburl             #+#    #+#             */
+/*   Updated: 2019/10/16 07:55:12 by mburl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include "libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
-/*
- * structure from piscine d11/ex01
-   
-typedef struct		s_list
+typedef struct	s_map
 {
-	void			*data;
-	struct s_list   *next;
-}					t_list;
+	int				size;
+	char			**array;
+}				t_map;
 
-*/
-
-typedef struct	s_tetris
+typedef	struct	s_coords
 {
-	int block;
+	int		x;
+	int		y;
+}				t_coords;
 
-}				t_tetris;
+typedef struct	s_tetros
+{
+	char	**pos;
+	int		width;
+	int		height;
+	char	val;
+}				t_tetros;
 
-int		valid(char *buff, int size);
+t_list			*free_list(t_list *lst);
+void			free_tetris(t_tetros *tet);
+t_tetros		*tetris_new(char **pos, int wi, int hi, char val);
+t_coords		*new_point(int x, int y);
+int				solve_map(t_map *map, t_list *lst);
+t_map			*solve(t_list *lst);
+int				f_sqrt(int n);
+void			min_max(char *str, t_coords *min, t_coords *max);
+t_tetros		*get_piece(char *str, char val);
+t_list			*read_tetros(int fd);
+void			free_map(t_map *map);
+void			print_map(t_map *map);
+t_map			*map_new(int size);
+int				place(t_tetros *tetros, t_map *map, int x, int y);
+void			set_piece(t_tetros *tetros, t_map *map,
+t_coords *point, char c);
 
 #endif
